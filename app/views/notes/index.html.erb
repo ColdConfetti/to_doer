@@ -11,6 +11,8 @@
 
 <ol>
   <% @notes.each do |note| %>
-    <li><%= note.content %></li>
+    <%= simple_form_for note, remote: true do |n| %>
+      <li><%= note.content %> | <%= n.check_box :complete, :class => 'checkable' %></li>
+    <% end %>  
   <% end %>
 </ol>

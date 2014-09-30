@@ -19,6 +19,15 @@ class NotesController < ApplicationController
   end
 
   def update
+    @note = Note.find(params[:id])
+    p @note.id
+    respond_to do |format|
+      if !@note.update_attributes(person_params)
+        @error = 'Could not update name'
+      end
+      format.js
+    end
+    render notes_path
   end
 
   def delete

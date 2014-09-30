@@ -1,9 +1,14 @@
-<div class="container">
-  Hello, buddy! I'm up and running w/ bootstrap!
-  <br/>
-  <% @notes.each do |note| %>
-    <%= note.content %>
-  <% end %>
-</div>
+<p>Hello, buddy! I'm up and running w/ bootstrap!</p>
 
-<%= link_to "Log out", destroy_user_session_path, :method => :delete %><br />
+<br/>
+
+<%= simple_form_for(@note, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.text_area :content, size: "80x5" %><br/>
+  <%= f.button :submit %>
+<% end %>
+
+<br/>
+
+<% @notes.each do |note| %>
+  <%= note.content %>
+<% end %>

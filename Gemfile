@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'simple_form'
 
 group :development do
   gem 'better_errors'

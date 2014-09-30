@@ -19,9 +19,10 @@ group :development do
   gem 'sqlite3'
 end
 
-# group :production do
+group :production do
   gem 'rails_12factor'
-# end
+  gem 'pg'
+end
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

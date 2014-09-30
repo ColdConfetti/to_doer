@@ -1,3 +1,7 @@
 <div class="container">
   Hello, buddy! I'm up and running w/ bootstrap!
+  <br/>
+  <% @notes.each do |note| %>
+    <%= note.content %>
+  <% end %>
 </div>

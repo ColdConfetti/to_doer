@@ -9,6 +9,8 @@
 
 <br/>
 
-<% @notes.each do |note| %>
-  <%= note.content %>
-<% end %>
+<ol>
+  <% @notes.each do |note| %>
+    <li><%= note.content %></li>
+  <% end %>
+</ol>

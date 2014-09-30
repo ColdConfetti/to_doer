@@ -6,8 +6,12 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  def complete
+    @notes = Note.where({user_id: current_or_guest_user.id, complete: true})
+  end
+
   def create
-    Note.create({user_id: current_or_guest_user.id, content: params[:note][:content]})
+    Note.create({user_id: current_or_guest_user.id, content: params[:note][:content], complete: false})
     redirect_to notes_path
   end
 
@@ -23,6 +27,6 @@ class NotesController < ApplicationController
   private
 
     def person_params
-      params.required(:note).permit(:user_id, :content)
+      params.required(:note).permit(:user_id, :content, :complete)
     end
 end

@@ -10,4 +10,6 @@
   </div>
 </div>
 
-<p>Continue as guest: <%= link_to "Click Here", notes_path %> </p>
+<% unless user_signed_in? %>
+  <p>Continue as guest: <%= link_to "Click Here", notes_path %> </p>
+<% end %>

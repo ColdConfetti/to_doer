@@ -1,8 +1,11 @@
 class NotesController < ApplicationController
 
   def index
-    create_guest_user unless guest_user
-    @notes = Note.where({user_id: current_or_guest_user.id})
+    unless user_signed_in?
+      flash.now[:notice] = "You are currently signed in as a guest. Login or sign up to save your notes."
+    end
+    create_guest_user unless guest_user || user_signed_in?
+    @notes = Note.where({user_id: current_or_guest_user.id, complete: false})
     @note = Note.new
   end
 

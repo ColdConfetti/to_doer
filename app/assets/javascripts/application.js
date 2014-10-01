@@ -19,5 +19,6 @@
 $(document).ready(function() {
   $('.checkable').click(function() {
     $(this).parents('form:first').submit();
+    $(this).parents('li:first').detach()
   });
 });

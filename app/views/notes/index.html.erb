@@ -1,6 +1,6 @@
 
 <%= simple_form_for(@note, html: {class: 'form-horizontal' }) do |f| %>
-  <%= f.text_area :content, size: "80x5" %><br/>
+  <%= f.text_area :content, size: "80x5", id: "main_content" %><br/>
   <%= f.button :submit %>
 <% end %>
 
@@ -9,7 +9,7 @@
 <ol>
   <% @notes.each do |note| %>
     <%= simple_form_for note, remote: true do |n| %>
-      <li><%= note.content %> | <%= n.check_box :complete, :class => 'checkable' %></li>
+      <li><%= note.content %> | <%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></li>
     <% end %>  
   <% end %>
 </ol>

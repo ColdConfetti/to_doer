@@ -12,11 +12,13 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 
-group :development do
+group :development, :test do
   gem 'better_errors'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'spring'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :production do

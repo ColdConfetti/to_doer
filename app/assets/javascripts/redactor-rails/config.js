@@ -1,4 +1,3 @@
-<script>
 $(document).ready(
   function(){
   var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -18,25 +17,3 @@ $(document).ready(
                 'unorderedlist', 'orderedlist', 'outdent', 'indent']}
   );
 });
-</script>
-
-<%= simple_form_for @note do |f| %>
-  <%= f.text_area :content, :class => "redactor", id: "main_content", :rows => 40, :cols => 120 %><br/>
-  <%= f.button :submit %>
-<% end %>
-
-<br/>
-<br/>
-
-<section class ="notes">
-  <% if @notes %>
-    <% @notes.each do |note| %>
-      <div class="note_container">
-        <%= simple_form_for note, remote: true do |n| %>
-          <div class="note_checkbox"><%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></div>
-          <div class="note_content"><%= note.content.html_safe %></div>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-</section>

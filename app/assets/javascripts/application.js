@@ -15,10 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require redactor-rails
 
 $(document).ready(function() {
   $('.checkable').click(function() {
     $(this).parents('form:first').submit();
-    $(this).parents('li:first').detach()
+    $(this).parent().parent().parent().detach();
   });
 });

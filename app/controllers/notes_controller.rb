@@ -28,9 +28,10 @@ class NotesController < ApplicationController
       if !@note.update_attributes(person_params)
         @error = 'Could not update name'
       end
-      format.js
+      format.js { render :action => "index", :formats => [:html] }
+      # render notes_path
     end
-    render notes_path
+    # render notes_path
   end
 
   def delete

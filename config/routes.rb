@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
   devise_for :users
   root 'welcome#index'
   resources :notes, except: ['show'] do

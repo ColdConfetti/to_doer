@@ -13,12 +13,14 @@ gem 'autoprefixer-rails'
 gem 'simple_form'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'better_errors'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'spring'
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :production do

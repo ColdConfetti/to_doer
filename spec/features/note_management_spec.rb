@@ -1,18 +1,6 @@
 require "spec_helper"
 include Warden::Test::Helpers
 
-module RequestHelpers
-  def create_logged_in_user
-    user = User.create(email: "bob@bob.com", password: "bobbobbob", password_confirmation: "bobbobbob")
-    login(user)
-    user
-  end
-
-  def login(user)
-    login_as user, scope: :user
-  end
-end
-
 feature 'When a user creates a note' do
 
   #there must be a better way... use factorygirl to create users
@@ -38,7 +26,7 @@ feature 'When a user creates a note' do
     expect(page).to have_content 'This is a test note.'
   end
 
-  after :each do
+  after do
     @user.delete
   end
 end

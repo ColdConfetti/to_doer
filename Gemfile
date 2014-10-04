@@ -11,6 +11,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
+gem 'redactor-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'

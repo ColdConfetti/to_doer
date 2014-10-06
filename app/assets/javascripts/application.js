@@ -17,6 +17,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require redactor-rails
+//= require bootstrap-datepicker
 
 $(document).ready(function() {
   $('.checkable').click(function() {
@@ -31,4 +32,6 @@ $(document).ready(function() {
         $(this).detach();
     }); // end this
   }); // end click
+
+  $('.datepicker').datepicker(); // datepicker
 }); //end ready

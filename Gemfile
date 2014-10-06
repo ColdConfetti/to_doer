@@ -15,7 +15,7 @@ gem 'redactor-rails'
   gem "carrierwave"
   gem "mini_magick"
 gem 'jquery-turbolinks'
-
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'

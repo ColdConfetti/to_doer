@@ -22,6 +22,7 @@ $(document).ready(
 
 <%= simple_form_for @note do |f| %>
   <%= f.text_area :content, :class => "redactor", id: "main_content", :rows => 40, :cols => 120 %><br/>
+  <%= f.text_field :due, :class => 'datepicker' %><br/><br/>
   <%= f.button :submit %>
 <% end %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003231137) do
+ActiveRecord::Schema.define(version: 20141006024601) do
 
   create_table "notes", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141003231137) do
     t.integer  "user_id"
     t.string   "content"
     t.boolean  "complete"
+    t.date     "due"
   end
 
   create_table "redactor_assets", force: true do |t|

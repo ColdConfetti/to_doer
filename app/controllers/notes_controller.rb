@@ -5,7 +5,7 @@ class NotesController < ApplicationController
       flash.now[:notice] = "You are currently signed in as a guest. Login or sign up to save your notes."
     end
     create_guest_user unless guest_user || user_signed_in?
-    @notes = Note.where({user_id: current_or_guest_user.id, complete: false})
+    @notes = Note.where({user_id: current_or_guest_user.id, complete: false}).order('due DESC')
     @note = Note.new
   end
 
@@ -14,8 +14,14 @@ class NotesController < ApplicationController
   end
 
   def create
-    Note.create({user_id: current_or_guest_user.id, content: params[:note][:content], complete: false})
-    redirect_to notes_path
+    to_save = Note.new({user_id: current_or_guest_user.id, content: params[:note][:content], complete: false, due: params[:note][:due]})
+    if to_save.content != ""
+      to_save.save
+      redirect_to notes_path
+    else
+      flash[:alert] = "Your to-do item must contain some content!"
+      redirect_to notes_path
+    end
   end
 
   def edit
@@ -26,7 +32,8 @@ class NotesController < ApplicationController
     p @note.id
     respond_to do |format|
       if !@note.update_attributes(person_params)
-        flash.now[:alert] = "The note could not be updated."
+        flash[:alert] = "The note could not be updated."
+        redirect_to request.referer
       end
       format.js { render :action => "index", :formats => [:html] }
     end
@@ -38,6 +45,6 @@ class NotesController < ApplicationController
   private
 
     def person_params
-      params.required(:note).permit(:user_id, :content, :complete)
+      params.required(:note).permit(:user_id, :content, :complete, :due)
     end
 end

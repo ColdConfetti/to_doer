@@ -20,6 +20,14 @@
 $(document).ready(function() {
   $('.checkable').click(function() {
     $(this).parents('form:first').submit();
-    $(this).parent().parent().parent().detach();
-  });
-});
+    $(this).fadeOut();
+    $(this).parent().parent().parent().animate({
+      opacity: 0.5,
+      height: "0px",
+      padding: "0",
+      margins: "0"
+      }, 1000, function() {
+        $(this).detach();
+    }); // end this
+  }); // end click
+}); //end ready

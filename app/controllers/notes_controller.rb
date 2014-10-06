@@ -26,12 +26,10 @@ class NotesController < ApplicationController
     p @note.id
     respond_to do |format|
       if !@note.update_attributes(person_params)
-        @error = 'Could not update name'
+        flash.now[:alert] = "The note could not be updated."
       end
       format.js { render :action => "index", :formats => [:html] }
-      # render notes_path
     end
-    # render notes_path
   end
 
   def delete

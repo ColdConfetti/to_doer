@@ -5,7 +5,7 @@ class NotesController < ApplicationController
       flash.now[:notice] = "You are currently signed in as a guest. Login or sign up to save your notes."
     end
     create_guest_user unless guest_user || user_signed_in?
-    @notes = Note.where({user_id: current_or_guest_user.id, complete: false}).order('due DESC')
+    @notes = Note.where({user_id: current_or_guest_user.id, complete: false}).order("CASE WHEN Due is null THEN 1 else 0 END, Due")
     @note = Note.new
   end
 

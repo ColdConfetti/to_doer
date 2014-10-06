@@ -1,7 +1,7 @@
 <section class ="notes">
   <% if @notes %>
     <% @notes.each do |note| %>
-      <div class="note_container">
+      <div class="note_container note_comp">
         <%= simple_form_for note, remote: true do |n| %>
           <div class="note_checkbox"><%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></div>
           <div class="note_content"><%= note.content.html_safe %></div>

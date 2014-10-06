@@ -12,8 +12,10 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'redactor-rails'
-gem "carrierwave"
-gem "mini_magick"
+  gem "carrierwave"
+  gem "mini_magick"
+gem 'jquery-turbolinks'
+
 
 group :development, :test do
   gem 'factory_girl_rails'

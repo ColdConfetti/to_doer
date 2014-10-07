@@ -2,19 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com
 
-.notes {
-
+body {
+  background-color: #F3F7EB;
 }
+.container
+{
+  background-color: white;
+}
+
 .note_container {
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 90%;
   border: 1px solid black;
   overflow: hidden;
   padding: 5px 8px 0px 5px;
   margin-bottom: 10px;
   border-radius: 5px;
   border-color: #631573;
+  display: inline-block;
 }
 .note_comp {
   box-shadow: .2em .3em .2em green;
@@ -27,4 +33,23 @@
 }
 .note_date {
   text-align: left;
+}
+.note_submit {
+  margin-bottom: 1em;
+}
+#manage {
+  text-align: right;
+  margin: 1em 1em 2em 0;
+}
+.full_wrapper
+{
+  width: 80%;
+  margin: 0 auto;
+}
+.delete
+{
+  float: left;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  display: none;
 }

@@ -23,22 +23,28 @@ $(document).ready(
 <%= simple_form_for @note do |f| %>
   <%= f.text_area :content, :class => "redactor", id: "main_content", :rows => 40, :cols => 120 %><br/>
   <%= f.text_field :due, :class => 'datepicker' %><br/><br/>
-  <%= f.button :submit %>
+  <%= f.button :submit, :class => 'note_submit' %>
 <% end %>
 
-<br/>
-<br/>
+<% unless @notes.empty? %>
+  <p id="manage">Click here to manage your notes.</p>
 
-<section class ="notes">
-  <% if @notes %>
+  <section class ="notes">
     <% @notes.each do |note| %>
-      <div class="note_container note_uncomp">
-        <%= simple_form_for note, remote: true do |n| %>
-          <div class="note_checkbox"><%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></div>
-          <div class="note_date">Due: <%= note.due.to_s %></div>
-          <div class="note_content"><%= note.content.html_safe %></div>
-        <% end %>
-      </div>
+      <%= simple_form_for note, remote: true do |n| %>
+        <div class="full_wrapper">
+          <div class="note_container note_uncomp">
+            <div class="note_checkbox"><%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></div>
+            <% if note.due %>
+              <div class="note_date">Due: <%= note.due.to_s %></div>
+            <% end %>
+            <div class="note_content"><%= note.content.html_safe %></div>
+          </div>
+          <div class="delete">
+            <%= link_to 'Delete', note, method: :delete, remote: true %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
+  </section>
+<% end %>

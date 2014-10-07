@@ -29,7 +29,6 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    p @note.id
     respond_to do |format|
       if !@note.update_attributes(person_params)
         flash[:alert] = "The note could not be updated."
@@ -39,7 +38,10 @@ class NotesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    note = Note.find(params[:id])
+    note.destroy
+    render complete_notes_path
   end
 
   private

@@ -23,15 +23,24 @@ $(document).ready(function() {
   $('.checkable').click(function() {
     $(this).parents('form:first').submit();
     $(this).fadeOut();
-    $(this).parent().parent().parent().animate({
+    $(this).parent().parent().animate({
       opacity: 0.5,
       height: "0px",
       padding: "0",
       margins: "0"
       }, 1000, function() {
         $(this).detach();
-    }); // end this
-  }); // end click
+    });
+  }); // end checkable click
 
   $('.datepicker').datepicker(); // datepicker
+
+  $('#manage').click(function() {
+    $('.delete').fadeIn();
+  }); //manage click
+
+  $('.delete').click(function() {
+    $(this).parent().parent().detach();
+  }); //delete click
+
 }); //end ready

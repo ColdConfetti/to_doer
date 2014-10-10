@@ -14,7 +14,8 @@ class NotesController < ApplicationController
   end
 
   def create
-    to_save = Note.new({user_id: current_or_guest_user.id, content: params[:note][:content], complete: false, due: params[:note][:due]})
+    formatted_date = params[:note][:due].gsub(/(\d+)\/(\d+)\/(\d+)/,"\\3-\\1-\\2")
+    to_save = Note.new({user_id: current_or_guest_user.id, content: params[:note][:content], complete: false, due: formatted_date})
     if to_save.content != ""
       to_save.save
       redirect_to notes_path

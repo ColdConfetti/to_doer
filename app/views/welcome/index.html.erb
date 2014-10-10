@@ -6,7 +6,7 @@
 <div class="center-block">
   <h1 class="text-center main-head">To-Doer</h1>
   <div class="text-center">
-    <button type="button" class="btn-lg btn-primary btn-longer"><%= link_to "View My Notes", notes_path, :class => "white" %></button><br/><br/>
-    <button type="button" class="btn btn-primary"><%= link_to "Login", new_user_session_path, :class => "white" %></button><span class="larger-1">&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;</span><button type="button" class="btn btn-primary"><%= link_to "Sign up", new_user_registration_path, :class => "white" %></button>
+    <%= link_to "View My Notes", notes_path, :class => "btn-lg btn-primary btn-longer white", :typep => "button" %><br/><br/>
+    <%= link_to "Login", new_user_session_path, :class => "btn btn-primary white", :type => "button" %><span class="larger-1">&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;</span><%= link_to "Sign up", new_user_registration_path, :class => "btn btn-primary white", :type => "button" %>
   </div>
 </div>

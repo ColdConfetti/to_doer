@@ -7,3 +7,15 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+// navbar
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+}
+
+.container {
+  padding-bottom: 2em;
+  margin-bottom: 20px;
+}

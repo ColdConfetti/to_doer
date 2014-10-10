@@ -20,8 +20,8 @@ feature 'When a user creates a note' do
     expect(@user.notes.first.content).to eq 'This is a test note.'
   end
 
-  scenario 'it can then be marked as complete', js: true do
-    check('complete_checkbox')
+  scenario 'it can then be made complete' do
+    @user.notes.first.update(complete: true)
     visit complete_notes_path
     expect(page).to have_content 'This is a test note.'
   end

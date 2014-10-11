@@ -38,7 +38,7 @@ $(document).ready(
           <div class="note_container note_uncomp">
             <div class="note_checkbox"><%= n.check_box :complete, :class => 'checkable', :id => 'complete_checkbox' %></div>
             <% if note.due %>
-                <div class="note_date<% if note.due < Date.today %> overdue<% end %>">Due: <%= note.due.to_s %></div>
+                <div class="note_date<% if note.due <= Date.today %> overdue<% end %>">Due: <%= note.due.to_s %></div>
             <% end %>
             <div class="note_content"><%= note.content.html_safe %></div>
           </div>

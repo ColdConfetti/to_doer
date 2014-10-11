@@ -27,16 +27,17 @@ $(document).ready(function() {
       opacity: 0.5,
       height: "0px",
       padding: "0",
-      margins: "0"
+      margin: "0"
       }, 1000, function() {
         $(this).detach();
+        $('.delete').parent().parent().detach();
     });
   }); // end checkable click
 
   $('.datepicker').datepicker(); // datepicker
 
   $('#manage').click(function() {
-    $('.delete').fadeIn();
+    $('.delete').fadeToggle();
   }); //manage click
 
   $('.delete').click(function() {
